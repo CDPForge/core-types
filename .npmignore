@@ -1,0 +1,15 @@
+# File di sviluppo
+src/
+*.ts
+tsconfig.json
+.npmignore
+
+# File temporanei
+*.d.ts.map
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# Dipendenze
+node_modules/
