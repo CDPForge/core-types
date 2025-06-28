@@ -104,5 +104,5 @@ export interface Event {
     ExternalId?: string;
     userAgent?: string;
     ip?: string;
-    topics?: number[];
+    topics?: (keyof typeof GoogleTopicsMap)[];
   }
