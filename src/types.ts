@@ -58,7 +58,7 @@ export interface GoogleTopic {
 
 export interface ConfigMessage {
     inputTopic: string;
-    outputTopic: string | null;
+    outputTopic?: string;
     plugin: string;
 }
 
