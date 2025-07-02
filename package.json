@@ -2,7 +2,6 @@
   "name": "@cdp-forge/types",
   "version": "1.1.2",
   "description": "TypeScript types for @cdp-forge",
-  "main": "dist/index.d.ts",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*"
