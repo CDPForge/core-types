@@ -66,6 +66,7 @@ export interface Config {
     pipelinemanager?: {
         url: string;
         config_topic: string;
+        first_topic: string;
     };
     plugin?: {
         name: string;
