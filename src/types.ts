@@ -72,6 +72,7 @@ export interface Config {
         name: string;
         priority: number;
         type: 'parallel' | 'blocking';
+        [key: string]: any;
     };
     kafka?: {
         brokers: string[];
