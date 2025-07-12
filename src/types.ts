@@ -1,5 +1,5 @@
 import { GoogleTopicsMap } from "./gTopics";
-export interface Product {
+export type Product = {
     id: string;
     price: number;
     brand?: string;
@@ -8,7 +8,7 @@ export interface Product {
     currency?: string;
 }
 
-export interface Log {
+export type Log = {
     client: number;
     date: string;
     device: {
@@ -51,44 +51,52 @@ export interface Log {
     [key: string]: any;
 }
 
-export interface GoogleTopic {
+export type GoogleTopic = {
     id: keyof typeof GoogleTopicsMap;
     name: (typeof GoogleTopicsMap)[keyof typeof GoogleTopicsMap];
 }
 
-export interface ConfigMessage {
+export type ConfigMessage = {
     inputTopic: string;
     outputTopic?: string;
     plugin: string;
 }
 
-export interface Config {
-    pipelinemanager?: {
+export type ClusterConfig = {
+    pipelinemanager: {
         url: string;
         config_topic: string;
         first_topic: string;
     };
-    plugin?: {
-        name: string;
-        priority: number;
-        type: 'parallel' | 'blocking';
-        [key: string]: any;
-    };
-    kafka?: {
+    kafka: {
         brokers: string[];
     };
-    mysql?: {
+    mysql: {
         uri: string;
     };
-    opensearch?: {
+    opensearch: {
         url: string;
         username: string;
         password: string;
     }
-    [key: string]: any;
+}
+type BasePluginConfig = {
+    name: string;
+    priority: number;
+    type: 'parallel' | 'blocking';
 }
 
-export interface Event {
+export type PluginConfig = BasePluginConfig & {
+    [K in string]: K extends keyof BasePluginConfig ? never : any;
+}
+
+export type Config = ClusterConfig & {
+    plugin?: PluginConfig;
+} & {
+    [K in string]: K extends keyof ClusterConfig | "plugin" ? never : any;
+}
+
+export type Event = {
     client: number;
     instance: number;
     event: string;
