@@ -63,7 +63,7 @@ export interface ConfigMessage {
 }
 
 export interface Config {
-    manager?: {
+    pipelinemanager?: {
         url: string;
         config_topic: string;
     };
@@ -72,12 +72,17 @@ export interface Config {
         priority: number;
         type: 'parallel' | 'blocking';
     };
-    kafkaConfig?: {
+    kafka?: {
         brokers: string[];
     };
-    mysqlConfig?: {
+    mysql?: {
         uri: string;
     };
+    opensearch?: {
+        url: string;
+        username: string;
+        password: string;
+    }
     [key: string]: any;
 }
 
