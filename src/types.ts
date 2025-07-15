@@ -68,8 +68,10 @@ export type ClusterConfig = {
         config_topic: string;
         first_topic: string;
     };
-    kafka: {
-        brokers: string[];
+    pulsar: {
+        proxy: string;
+        uiPassword: string;
+        dbPassword: string;
     };
     mysql: {
         uri: string;
